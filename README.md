@@ -44,7 +44,21 @@ format html to the text with CR and tab
 	1. 改插件依赖于jquery，在页面中引入jquery以及formatHtml.js
 	2. 在页面底部，body上面编写js代码（或者引入外部js文件）：
 	    HtmlFormat.init(['content'], false, '_code');
-	
+	3. 页面上要转化的dom节点的id和显示转化后结果的元素id之间的关系
+	    srcDomId + '_code' == showDomId;
+	    例如：srcDomId  =  id="content" ，  showDomId = content_code
+	    <div class="content" id="content">
+	    	<h1>html代码格式化显示</h1>
+	    	<div class="formatHtml">
+		    <pre id="">
+		        content ........
+		    </pre>
+	        </div>
+	    </div>
+	    <div class="formatHtml">
+	        <pre id="content_code">
+	        </pre>
+	    </div>
 	
 	
 	
