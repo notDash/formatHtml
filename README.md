@@ -41,9 +41,9 @@ format html to the text with CR and tab
 	</body>
 	</html>
 	
-	改插件依赖于jquery，在页面中引入jquery以及formatHtml.js
-	在页面底部，body上面编写js代码（或者引入外部js文件）：
-	HtmlFormat.init(['content'], true, false, 0, '_code');
+	1. 改插件依赖于jquery，在页面中引入jquery以及formatHtml.js
+	2. 在页面底部，body上面编写js代码（或者引入外部js文件）：
+	    HtmlFormat.init(['content'], false, '_code');
 	
 	
 	
