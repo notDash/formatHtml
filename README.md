@@ -59,6 +59,7 @@ format html to the text with CR and tab
 	        <pre id="content_code">
 	        </pre>
 	    </div>
-	
-	
-	
+
+
+# htmlToJade 转换html to jade
+    支持html转换为jade, 有待进一步测试校验	
