@@ -5,20 +5,47 @@
 	<title>测试html代码直接格式化显示在页面</title>
 </head>
 <body>
-	<div class="content" id="content">
+	
+	<div class="content" id="content">这是文本
 		<h1>html代码格式化显示</h1>
-		<div class="formatHtml">
-			<pre id="">
-				content ........
-			</pre>
+		<div class="formatHtml adsfasdf" id="aaaasdasfd">
+			<ul>
+				<li>
+					<a href="#" style="width:100px">aaa</a>
+				</li>
+				<li><a href="#">bbb</a></li>
+				<li><a href="#">ccc</a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="formatHtml">
 		<pre id="content_code">
 		</pre>
+		<button id="clickBtn" value="html">switch</button>
+	</div>
+	<div class="formatHtml">
+		<pre id="content_jade">
+		</pre>
 	</div>
 
 	<script src="js/jquery1.42.min.js"></script>
-	<script src="formatHtml.js"></script>
+	<script src="htmlToJade.js"></script>
+
+
+	<script type="text/javascript">
+		
+		/**
+		 * [init description]
+		 * @param  {[type]}  doms      [节点id集合]
+		 * @param  {Boolean} isRoot    [是否是第一次传入]
+		 * @param  {[type]}  needRoot  [是否需要根节点]
+		 * @param  {[type]}  withSpace [第一次传入0]
+		 * @param  {[type]}  suffix    [显示节点ID的后缀, 节点ID + '_' + suffix]
+		 * @return {[type]}            [description]
+		 */
+		HtmlFormat.init(['content'], false, '_code', 'html' ,'button#clickBtn');
+		// HtmlFormat.init(['content'], true, '_code');
+
+	</script>
 </body>
 </html>
