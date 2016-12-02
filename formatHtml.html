@@ -6,9 +6,10 @@
 </head>
 <body>
 	
-	<div class="content" id="content">这是文本
+	<div class="content" id="content">
 		<h1>html代码格式化显示</h1>
-		<div class="formatHtml adsfasdf" id="aaaasdasfd">
+		<div style="width: 100px;height: 200px;" class="formatHtml adsfasdf" id="aaaasdasfd">
+			这是文本2
 			<ul>
 				<li>
 					<a href="#" style="width:100px">aaa</a>
@@ -16,12 +17,19 @@
 				<li><a href="#">bbb</a></li>
 				<li><a href="#">ccc</a></li>
 			</ul>
+			<div>
+				<p>Jade is a terse and simple
+				asdfasdf
+				asdfa<br>asdfasdfasd</p>
+			</div>
+			<img src="https://css.meixincdn.com/m/h5/dist/images/newHome/nav-ticket.png">
 		</div>
 	</div>
 	<div class="formatHtml">
 		<pre id="content_code">
 		</pre>
-		<button id="clickBtn" value="html">switch</button>
+		<span class="clickBtn" >html</span>
+		<span class="clickBtn" >jade</span>
 	</div>
 	<div class="formatHtml">
 		<pre id="content_jade">
@@ -43,7 +51,7 @@
 		 * @param  {[type]}  suffix    [显示节点ID的后缀, 节点ID + '_' + suffix]
 		 * @return {[type]}            [description]
 		 */
-		HtmlFormat.init(['content'], false, '_code', 'html' ,'button#clickBtn');
+		HtmlFormat.init(['content'], false, '_code', 'html' ,'span.clickBtn');
 		// HtmlFormat.init(['content'], true, '_code');
 
 	</script>
