@@ -26,15 +26,6 @@
 						$(dom).removeClass('actived');
 					}
 				});
-				/*if(!value) {
-					value = 'html';
-					this.innerHTML = 'html';
-				}
-				if(value == 'html') {
-					this.innerHTML = value = 'jade';
-				} else if(value == 'jade') {
-					this.innerHTML = value = 'html';
-				} */
 				HtmlFormat.handleSwitch([changeId], false, '_code', value);
 			});
 		},
@@ -50,6 +41,9 @@
 				this.target = currDom + suffix;
 				this.type = type?type.toLowerCase():'html';
 				currDom = $('#' + currDom);
+				if(!currDom || (currDom && currDom.length === 0)) {
+					return;
+				}
 				this.handleFormatHtml(currDom, isRoot, withSpace, needRoot);
 				$('#' + this.target)[0].innerHTML = HtmlFormat.tempResultHtml + HtmlFormat.tempResultSuffixArr.join('<br>');
 				this.reset();
@@ -83,7 +77,7 @@
 				outerH = currNode.outerHTML;
 				pre = outerH.substr(0, outerH.split('').length - (currNode.tagName.length + 3));
 				if(!isRoot || (isRoot && needRoot)) { // 暂存根节点，如果不需要，后续截取掉
-					if(this.type === 'jade') {
+					if(this.type === 'pug') {
 						this.tempResultHtml += this.nodeToJade(currNode, true, withSpace, true);
 					} else {
 						this.tempResultHtml += this.wrapWithFormatL(pre, true, withSpace);
@@ -92,7 +86,7 @@
 				space = this.generateIndent(withSpace);
 				if(isRoot && !needRoot) { // 暂存根节点，如果不需要，后续截取掉
 					withSpace = -1
-				} else if(!(this.type === 'jade')) {
+				} else if(!(this.type === 'pug')) {
 					this.tempResultSuffixArr.unshift(space + '&lt;/' + currNode.tagName.toLowerCase() + '&gt;');
 				}
 				for(var i =0 , len = jqDom.childNodes.length; i < len; i ++) {
@@ -101,7 +95,7 @@
 			} else {
 				if(jqDom.nodeType === 1) {
 					currNode = jqDom.cloneNode(true);
-					if(this.type === 'jade') {
+					if(this.type === 'pug') {
 						this.tempResultHtml += this.nodeToJade(currNode, true, withSpace, false);
 					} else {
 						outerH = currNode.outerHTML;
@@ -110,7 +104,7 @@
 					return;
 				}
 				if(jqDom.nodeType === 3) {
-					if(this.type === 'jade') {
+					if(this.type === 'pug') {
 						this.tempResultHtml += this.nodeToJade(jqDom, true, withSpace, false);
 					} else {
 						this.tempResultHtml +=  this.wrapWithFormatL(jqDom.nodeValue.trim(), false, withSpace) + '<br>';

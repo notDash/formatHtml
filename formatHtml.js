@@ -19,6 +19,9 @@
 				var isRoot = true;
 				this.target = currDom + suffix;
 				currDom = $('#' + currDom);
+				if(!currDom || (currDom && currDom.length === 0)) {
+					return;
+				}
 				this.handleFormatHtml(currDom, isRoot, withSpace, needRoot);
 				$('#' + this.target)[0].innerHTML = HtmlFormat.tempResultHtml + HtmlFormat.tempResultSuffixArr.join('<br>');
 				this.reset();
